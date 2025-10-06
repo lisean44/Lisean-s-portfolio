@@ -1,0 +1,28 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:api": "npm --workspace apps/api run dev",
+    "dev:web": "npm --workspace apps/web run dev",
+    "dev": "concurrently -n api,web -c blue,green \"npm:dev:api\" \"npm:dev:web\"",
+    "build": "npm --workspace apps/api run build --if-present && npm --workspace apps/web run build",
+    "test": "echo \"no tests\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lisean44/Lisean-s-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lisean44/Lisean-s-portfolio/issues"
+  },
+  "homepage": "https://github.com/lisean44/Lisean-s-portfolio#readme"
+}
